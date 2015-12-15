@@ -1,0 +1,57 @@
+# Project: LinesProject
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+RES  = LinesProject_private.res
+OBJ  = main.o menuitem.o game.o ball.o grid.o globals.o utilities.o dump.o exception.o $(RES)
+LINKOBJ  = main.o menuitem.o game.o ball.o grid.o globals.o utilities.o dump.o exception.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -L"C:/Documents and Settings/Marat Subkhankulov/My Documents/Game design/Lines Game/LinesProject/hge181/lib/gcc" -mwindows hge181/lib/gcc/libhge.a hge181/lib/gcc/libhgehelp.a  -g3 
+INCS =  -I"C:/Dev-Cpp/include"  -I"C:/Documents and Settings/Marat Subkhankulov/My Documents/Game design/Lines Game/LinesProject"  -I"C:/Documents and Settings/Marat Subkhankulov/My Documents/Game design/Lines Game/LinesProject/hge181/include"  -I"C:/Documents and Settings/Marat Subkhankulov/My Documents/Game design/Lines Game/LinesProject/hge181" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include"  -I"C:/Documents and Settings/Marat Subkhankulov/My Documents/Game design/Lines Game/LinesProject"  -I"C:/Documents and Settings/Marat Subkhankulov/My Documents/Game design/Lines Game/LinesProject/hge181/include"  -I"C:/Documents and Settings/Marat Subkhankulov/My Documents/Game design/Lines Game/LinesProject/hge181" 
+BIN  = LinesProject.exe
+CXXFLAGS = $(CXXINCS)   -g3
+CFLAGS = $(INCS)   -g3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before LinesProject.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "LinesProject.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+menuitem.o: menuitem.cpp
+	$(CPP) -c menuitem.cpp -o menuitem.o $(CXXFLAGS)
+
+game.o: game.cpp
+	$(CPP) -c game.cpp -o game.o $(CXXFLAGS)
+
+ball.o: ball.cpp
+	$(CPP) -c ball.cpp -o ball.o $(CXXFLAGS)
+
+grid.o: grid.cpp
+	$(CPP) -c grid.cpp -o grid.o $(CXXFLAGS)
+
+globals.o: globals.cpp
+	$(CPP) -c globals.cpp -o globals.o $(CXXFLAGS)
+
+utilities.o: utilities.cpp
+	$(CPP) -c utilities.cpp -o utilities.o $(CXXFLAGS)
+
+dump.o: dump.cpp
+	$(CPP) -c dump.cpp -o dump.o $(CXXFLAGS)
+
+exception.o: exception.cpp
+	$(CPP) -c exception.cpp -o exception.o $(CXXFLAGS)
+
+LinesProject_private.res: LinesProject_private.rc 
+	$(WINDRES) -i LinesProject_private.rc --input-format=rc -o LinesProject_private.res -O coff  --include-dir C:/DOCUME~1/MARATS~1/MYDOCU~1/GAMEDE~1/LINESG~1/LINESP~1/hge181
